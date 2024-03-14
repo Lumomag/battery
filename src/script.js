@@ -2,13 +2,13 @@ document.body.addEventListener("keyup", (event) => {
   playSound(event.code.toLowerCase());
 });
 
-document.querySelector(".composer button").addEventListener("click", () => {
-  let song = document.querySelector("#input").value;
-  if (song !== "") {
-    let songArray = song.split("");
+document.querySelector('.composer button').addEventListener('click', ()=> {
+  let song = document.querySelector('#input').value;
+  if(song !== ''){
+    let songArray = song.split('');
     playComposition(songArray);
   }
-});
+})
 
 function playSound(sound) {
   let audioElement = document.querySelector(`#s_${sound}`);
@@ -19,21 +19,23 @@ function playSound(sound) {
     audioElement.play();
   }
 
-  if (keyElememt) {
-    keyElememt.classList.add("active");
+  if(keyElememt) {
+    keyElememt.classList.add('active');
 
-    setTimeout(() => {
-      keyElememt.classList.remove("active");
-    }, 150);
+    setTimeout(() =>{
+      keyElememt.classList.remove('active');
+    }, 150)
   }
 }
 
-function playComposition(songArray) {
+function playComposition(songArray){
   let wait = 0;
-  for (let songItem of songArray) {
-    setTimeout(() => {
+  for(let songItem of songArray){
+    setTimeout(()=>{
       playSound(`key${songItem}`);
-    }, wait);
+    }, wait)
     wait += 250;
   }
+
+  
 }
